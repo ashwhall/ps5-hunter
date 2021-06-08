@@ -13,11 +13,11 @@ Run it!
 python3 run.py
 ```
 
-Then enter your Gmail credentials to log in when prompted.
+Then enter your email credentials to log in when prompted (sender must be Gmail).
 ```
 Enter Email credentials:
 Sender email: xxxx@gmail.com
-Receiver email: yyyy@gmail.com
+Receiver email: yyyy@zzzz.com
 Password: ******
 ```
 
