@@ -19,7 +19,9 @@ def scrape_site(name, scrape_func):
 def scrape_bigw():
     resp = requests.get('https://www.bigw.com.au/ps5')
 
-    if resp.status_code == 404 or 'Please continue to check back online for further updates' in resp.text:
+    if resp.status_code == 404\
+        or 'Please continue to check back online for further updates' in resp.text\
+        or 'Something has gone wrong our side' in resp.text:
         return False
 
     return True
