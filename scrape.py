@@ -21,7 +21,8 @@ def scrape_bigw():
 
     if resp.status_code == 404\
         or 'Please continue to check back online for further updates' in resp.text\
-        or 'Something has gone wrong our side' in resp.text:
+        or 'Something has gone wrong our side' in resp.text \
+        or 'Either been moved' in resp.text:
         return False
 
     return True
