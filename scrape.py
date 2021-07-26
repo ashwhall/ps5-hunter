@@ -76,15 +76,30 @@ def scrape(headless=False):
     driver = webdriver.Chrome(executable_path='chromedriver_linux64/chromedriver', options=chrome_options)
 
     stock_str = ''
-    if not bigw_found and scrape_site('BIG W', scrape_bigw):
-        bigw_found = True
-        stock_str += 'BIG W appears to have stock! https://www.bigw.com.au/ps5\n'
-    if not target_found and scrape_site('Target', lambda: scrape_target(driver)):
-        target_found = True
-        stock_str += 'Target appears to have stock! https://www.target.com.au/playstation-5\n'
-    if not jb_found and scrape_site('JB HI-FI', lambda: scrape_jb(driver)):
-        jb_found = True
-        stock_str += 'JB HIFI appears to have stock! https://www.jbhifi.com.au/collections/games-consoles/playstation-consoles\n'
+    try:
+        if not bigw_found and scrape_site('BIG W', scrape_bigw):
+            bigw_found = True
+            stock_str += 'BIG W appears to have stock! https://www.bigw.com.au/ps5\n'
+    except Exception as error:
+        print("ERROR!")
+        print(error)
+        pass
+    try:
+        if not target_found and scrape_site('Target', lambda: scrape_target(driver)):
+            target_found = True
+            stock_str += 'Target appears to have stock! https://www.target.com.au/playstation-5\n'
+    except Exception as error:
+        print("ERROR!")
+        print(error)
+        pass
+    try:
+        if not jb_found and scrape_site('JB HI-FI', lambda: scrape_jb(driver)):
+            jb_found = True
+            stock_str += 'JB HIFI appears to have stock! https://www.jbhifi.com.au/collections/games-consoles/playstation-consoles\n'
+    except Exception as error:
+        print("ERROR!")
+        print(error)
+        pass
 
     driver.quit()
 
